@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-3.5.1.js"></script>
+</head>
+<body>
+    
+    <ul id="test">
+        <li>태그1</li>
+        <li>태그2</li>
+        <li>태그3</li>
+    </ul>
+
+    <div id="box">
+
+    </div>
+
+
+    <script>
+        //li에 전부 동일한 이벤트를 건다.
+        //1st
+        //태그에 onclick을 인라인으로 걸어주는 방법
+
+        //2nd li를 선택해와서 반복문으로 이벤트를 등록
+        /* var test = document.querySelector("#test");
+        var list = test.querySelectorAll("li");
+        for(i=0; i<list.length; i++){
+            list[i].onclick = function(){
+                alert("이벤트");
+            }
+        } */
+
+        //3rd
+       /*  var test = document.getElementById("test");
+        test.onclick = function(){
+            if(event.tagName == "UL") return;
+            alert("이벤트");
+        } */
+
+        //4nd - 제이쿼리
+        $("#test").on("click","li",function(){
+            alert("이벤트~");
+        })
+
+        /* $("#box").click(function(){
+            alert("이벤트!");
+        }); */
+        $("#box").on("click","a",function(){
+            alert("이벤트!");
+        });
+
+        var str="";
+        str += "<a href='#'>태그1</a><br>";
+        str += "<a href='#'>태그1</a><br>";
+        str += "<a href='#'>태그1</a><br>";
+
+        $("#box").html(str);
+
+    </script>
+</body>
+</html>
